@@ -15,7 +15,7 @@ then
 	ipvmid='172.16.'$vmid
 	echo $ipvmid
 	mkdir /partage$vmid && chmod 777 /partage$vmid
-	printf "%s" "$vmid:/partage$vmid /partage$vmid nfs defaults,user,auto 0 0" > /etc/fstab
+	printf "%s" "$ipvmid:/partage$vmid /partage$vmid nfs defaults,user,auto 0 0" >> /etc/fstab
 	echo 'Le serveur a bien été ajouté!'
 else
 	exit
