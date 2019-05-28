@@ -14,7 +14,12 @@ then
 	done
 	ipvmid='172.16.'$vmid
 	echo $ipvmid
-	mkdir /partage$vmid && chmod 777 /partage$vmid
+	if [ -f /partage$vmid ]
+		then
+			echo 'Le dossier existe déjà, on passe cette étape'
+		else
+			mkdir /partage$vmid && chmod 777 /partage$vmid
+	fi
 	printf "%s\n" "$ipvmid:/partage$vmid /partage$vmid nfs defaults,user,auto 0 0" >> /etc/fstab
 	echo 'Le serveur a bien été ajouté!'
 else
