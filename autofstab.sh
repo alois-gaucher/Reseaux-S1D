@@ -18,5 +18,7 @@ then
 	printf "%s\n" "$ipvmid:/partage$vmid /partage$vmid nfs defaults,user,auto 0 0" >> /etc/fstab
 	echo 'Le serveur a bien été ajouté!'
 else
+	touch /etc/fstab
+	echo 'Fichier /etc/fstab créé, relancez le script!'
 	exit
 fi
